@@ -1,0 +1,66 @@
+<h2 mat-dialog-title>Dialog with elements</h2>
+<mat-dialog-content>
+    <form [formGroup]="userForm" >
+        <div class="margin-10">
+          <mat-form-field >
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <small *ngIf="userForm.get('firstName').invalid && userForm.get('firstName').touched">Please provide First Name</small>
+          </mat-form-field>
+          <mat-form-field class="padding-left-38">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <small *ngIf="userForm.get('lastName').invalid && userForm.get('lastName').touched">Please provide Lastname</small>
+          </mat-form-field>
+        </div>
+        <div class="margin-10">
+          <mat-form-field >
+            <input matInput placeholder="Employee Id" formControlName="employeeid">
+            <small *ngIf="userForm.get('employeeid').invalid && userForm.get('employeeid').touched">Please provide 6 digit numeric value</small>
+          </mat-form-field>
+          <mat-form-field class="padding-left-38">
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <small *ngIf="userForm.get('password').invalid && userForm.get('password').touched">Please provide Password</small>
+          </mat-form-field>
+        </div>
+        <div class="margin-10">
+          <mat-form-field class="width-100" >
+            <input matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div class="margin-10">
+          <mat-radio-group formControlName="gender" >
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="padding-left-40">
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="margin-10">
+          <mat-form-field >
+            <mat-select placeholder="Salary" formControlName="salary">
+              <mat-option *ngFor="let range of salary" [value]="range">{{range}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="padding-left-38">
+            <mat-select placeholder="Access Type" formControlName="accessType">
+              <mat-option *ngFor="let item of accessTypeArr" [value]="item">{{item}}</mat-option>
+            </mat-select>
+            <small *ngIf="userForm.get('accessType').invalid && userForm.get('accessType').touched">Please provide Access Type</small>
+          </mat-form-field>       
+        </div>
+        <div class="margin-3-10" formGroupName="Timings">
+            <mat-checkbox formControlName="parttime" >parttime</mat-checkbox>
+            <mat-checkbox formControlName="fulltime">fulltime</mat-checkbox>
+            
+        </div>
+        <div class="margin-3-10">
+          <quill-editor formControlName="description"></quill-editor>
+        </div>
+      </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button [disabled]="userForm.invalid" mat-raised-button type="submit" (click)="onSubmit()">Submit</button>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

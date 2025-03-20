@@ -1,0 +1,76 @@
+<mat-card>
+  <span style="padding: 6px 90px;">Already have an Account?&nbsp;
+    <a routerLink="/login" target="_blank">SignIn</a>
+  </span>
+  <mat-card-header>
+    <mat-card-title class="signup-header">Signup Form</mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="margin-10">
+        <mat-form-field class="form-group">
+          <input matInput placeholder="First Name" formControlName="firstName">
+          <small *ngIf="userForm.get('firstName').invalid && userForm.get('firstName').touched">Please provide First Name</small>
+        </mat-form-field>
+        <mat-form-field  class="form-group padding-left-38">
+          <input matInput placeholder="Last Name" formControlName="lastName">
+          <small *ngIf="userForm.get('lastName').invalid && userForm.get('lastName').touched">Please provide Lastname</small>
+        </mat-form-field>
+      </div>
+      <div class="margin-10">
+        <mat-form-field >
+          <input matInput placeholder="Employee Id" formControlName="employeeid">
+          <small *ngIf="userForm.get('employeeid').invalid && userForm.get('employeeid').touched">Please provide 6 digit numeric value</small>
+        </mat-form-field>
+        <mat-form-field class="padding-left-38">
+          <input matInput placeholder="Password" type="password" formControlName="password">
+          <small *ngIf="userForm.get('password').invalid && userForm.get('password').touched">Please provide Password</small>
+        </mat-form-field>
+      </div>
+      <div class="margin-10">
+        <mat-form-field class="width-100" >
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+      </div>
+      <div class="margin-10">
+        <mat-radio-group formControlName="gender" >
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field class="padding-left-40">
+          <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="margin-10">
+        <mat-form-field >
+          <mat-select placeholder="Income" formControlName="salary">
+            <mat-option *ngFor="let range of salary" [value]="range">{{range}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="padding-left-38">
+          <mat-select placeholder="Access Type" formControlName="accessType">
+            <mat-option *ngFor="let item of accessTypeArr" [value]="item">{{item}}</mat-option>
+            <small *ngIf="userForm.get('accessType').invalid && userForm.get('accessType').touched">Please provide Access Type</small>
+          </mat-select>
+        </mat-form-field>       
+      </div>
+      <div class="margin-3-10" formGroupName="Timings">
+          <mat-checkbox formControlName="parttime" >parttime</mat-checkbox>
+          <mat-checkbox formControlName="fulltime">fulltime</mat-checkbox>
+          
+      </div>
+      <div class="margin-3-10">
+        <quill-editor formControlName="description"></quill-editor>
+      </div>
+      <div class="button-center">
+        <button class="width-30" [disabled]="userForm.invalid" mat-raised-button type="submit">Submit</button>
+      </div>
+    </form>
+    <span>Already have an Account?&nbsp;
+      <a routerLink="/login" target="_blank">SignIn</a>
+    </span>
+  </mat-card-content>
+</mat-card>

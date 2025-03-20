@@ -1,0 +1,35 @@
+.mat-mdc-card{
+    margin: 0 30%;
+}
+
+.login-header{
+    padding-bottom: 20%;
+}
+
+.align-center{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    width: 125%;
+}
+
+.padding-bottom {
+    padding-bottom: 8%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.mat-mdc-form-field{
+    width: 125%;
+}
+
+.err-code{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin: 2%;
+}

@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-header class="align-center">
+      <mat-card-title class="login-header">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="align-center">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field >
+                <input matInput placeholder="Email" formControlName="email">
+            </mat-form-field>  
+        </div>
+        <div>
+            <mat-form-field >
+                <input matInput type="password" placeholder="Password" formControlName="password">
+            </mat-form-field>
+        </div>
+        <div class="button-size padding-bottom">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+    <div class="err-code" *ngIf="empValid">Please provide a valid email or password</div>
+    <div class="align-center">
+        Create an Account &nbsp; &nbsp; <a routerLink="/signup"> Signup</a>
+    </div>
+  </mat-card>
+  

@@ -1,0 +1,44 @@
+.mat-mdc-card{
+  margin: 0 20%;
+}
+
+.signup-header{
+  padding-bottom: 20%;
+}
+
+.mat-mdc-card-header{
+  justify-content: center;
+}
+
+.padding-left-38{
+  padding-left: 38%;
+}
+
+.padding-left-40{
+  padding-left: 40%;
+}
+
+.margin-10{
+  margin: 0 10%;
+}
+
+.width-100{
+  width: 100%;
+}
+
+.margin-3-10{
+  margin: 3% 10%;
+}
+
+.width-30{
+  width: 30%;
+}
+
+.button-center{
+  display: flex;
+  justify-content: center;
+}
+
+small{
+  color: red;
+}

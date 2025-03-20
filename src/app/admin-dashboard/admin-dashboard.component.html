@@ -1,0 +1,7 @@
+    <ag-grid-angular [style.height]="gridHeight" style="width: 100%;"
+       class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="colDefs"
+      [defaultColDef]="defaultColDef"
+      (rowClicked)="onRowClick($event)">
+    </ag-grid-angular>
