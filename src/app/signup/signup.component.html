@@ -20,8 +20,8 @@
       </div>
       <div class="margin-10">
         <mat-form-field >
-          <input matInput placeholder="Employee Id" formControlName="employeeid">
-          <small *ngIf="userForm.get('employeeid').invalid && userForm.get('employeeid').touched">Please provide 6 digit numeric value</small>
+          <input matInput placeholder="Employee Id" maxlength="5" formControlName="employeeid">
+          <small *ngIf="userForm.get('employeeid').invalid && userForm.get('employeeid').touched">Please provide 5 digit numeric value</small>
         </mat-form-field>
         <mat-form-field class="padding-left-38">
           <input matInput placeholder="Password" type="password" formControlName="password">
